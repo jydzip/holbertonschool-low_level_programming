@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/*
+/**
  *main - Start program
  *Return: (int) Success
  */
