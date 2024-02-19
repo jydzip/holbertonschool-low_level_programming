@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 /**
  *main - Start program
@@ -7,12 +8,8 @@
  */
 int main(void)
 {
-	char *text = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-	int textLength = strlen(text);
+	char text[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
 
-	for (int i = 0; i < textLength; i++)
-	{
-		putchar(text[i]);
-	}
+	write(STDOUT_FILENO, text, strlen(text));
 	return (1);
 }
