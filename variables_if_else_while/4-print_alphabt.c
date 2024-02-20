@@ -6,16 +6,15 @@
  */
 int main(void)
 {
-        char *text = "abcdfghijklmnoprstuvwxyz";
-        int i = 0;
+	char *text = "abcdfghijklmnoprstuvwxyz";
+	int i = 0;
 
-        while (i < 24)
-        {
+	while (i < 24)
+	{
 		char letter = text[i];
-               	putchar(letter);
-                i++;
-        }
-
-        putchar('\n');
-        return (0);
+		putchar(letter);
+		i++;
+	}
+	putchar('\n');
+	return (0);
 }
