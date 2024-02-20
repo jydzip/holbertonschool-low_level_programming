@@ -9,7 +9,7 @@ int main(void)
         char *text = "abcdfghijklmnoprstuvwxyz";
         int i = 0;
 
-        while (i < 26)
+        while (i < 24)
         {
 		char letter = text[i];
                	putchar(letter);
@@ -17,6 +17,5 @@ int main(void)
         }
 
         putchar('\n');
-
         return (0);
 }
