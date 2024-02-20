@@ -15,20 +15,20 @@ int main(void)
 		i++;
 		count++;
 		if (i == 0 && ii == 0)
-                {
-                        continue;
-                }
+		{
+			continue;
+		}
 		if (i == ii || ii > i)
 		{
 			continue;
 		}
 		putchar(ii % 10 + '0');
 		putchar(i % 10 + '0');
-		
+
 		if (ii == 8 && i == 9)
-                {
-                        break;
-                }
+		{
+			break;
+		}
 
 		if (i >= 9)
 		{
