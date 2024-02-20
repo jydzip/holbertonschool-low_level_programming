@@ -7,7 +7,7 @@
 int main(void)
 {
 	char *text = "abcdefghijklmnopqrstuvwxyz";
-	int i = 26;
+	int i = 25;
 
 	while (i >= 0)
 	{
@@ -16,5 +16,6 @@ int main(void)
 		putchar(letter);
 		i--;
 	}
+	putchar('\n');
 	return (0);
 }
