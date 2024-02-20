@@ -30,6 +30,6 @@ int main(void)
 			text2 = "less than 6 and not 0";
 		}
 	}
-	printf("Last figit of %d is %d and is %s\n", n, last_digit, text2);
+	printf("Last digit of %d is %d and is %s\n", n, last_digit, text2);
 	return (0);
 }
