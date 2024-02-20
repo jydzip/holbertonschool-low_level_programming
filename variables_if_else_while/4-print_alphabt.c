@@ -12,6 +12,7 @@ int main(void)
 	while (i < 24)
 	{
 		char letter = text[i];
+
 		putchar(letter);
 		i++;
 	}
