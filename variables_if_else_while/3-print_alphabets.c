@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 
 /**
  *main - Start program
@@ -7,29 +6,13 @@
  */
 int main(void)
 {
-	int x = 'A';
-	int stade = 0;
+	char *text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int i = 0;
 
-	while (x <= 'Z')
+	while (i < 52)
 	{
-		if (stade == 0)
-		{
-			putchar(tolower(x));
-		}
-		else
-		{
-			putchar(x);
-		}
-
-		if (x == 'Z' && stade == 0)
-		{
-			x = 'A';
-			stade = 1;
-		}
-		else
-		{
-			x++;
-		}
+		putchar(text[i]);
+		i++;
 	}
 
 	putchar('\n');
