@@ -1,5 +1,4 @@
 #include "main.h"
-#include <ctype.h>
 
 /**
  *  _islower - Check if arg is lowercase
@@ -7,5 +6,9 @@
  */
 int _islower(int c)
 {
-	return islower(c);
+	if (c >= 97 && c <= 122)
+	{
+		return (1);
+	}
+	return (0);
 }
