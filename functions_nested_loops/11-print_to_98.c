@@ -12,7 +12,9 @@ void print_to_98(int n)
 
 	is_increment = 1;
 	if (n > 98)
+	{
 		is_increment = 0;
+	}
 
 	i = n;
 	while (1 == 1)
@@ -26,14 +28,20 @@ void print_to_98(int n)
 		if ((i >= 0 && i <= 9) || (i >= -9 && i < 0))
 			_putchar((nb % 10) + '0');
 		else
+		{
 			if (nb > 99)
+			{
 				_putchar((nb / 100) + '0');
 				nb = nb % 100;
+			}
 			_putchar((nb / 10) + '0');
 			_putchar((nb % 10) + '0');
+		}
 		if (i != 98)
+		{
 			_putchar(',');
 			_putchar(' ');
+		}
 		else
 			break;
 		if (is_increment == 1)
