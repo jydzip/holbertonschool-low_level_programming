@@ -15,13 +15,10 @@ void print_to_98(int n)
 	{
 		is_increment = 0;
 	}
-
 	i = n;
 	while (1 == 1)
 	{
-		is_negative = 0;
-		if (i < 0)
-			is_negative = 1;
+		is_negative = 1 ? i < 0 : 0;
 		nb = i * ((i > 0) - (i < 0));
 		if (is_negative == 1)
 			_putchar('-');
