@@ -17,7 +17,10 @@ int main(void)
 		{
 			break;
 		}
-
+		if ((nb % 2) == 0)
+		{
+			total += nb;
+		}
 		num1 = num2;
 		num2 = nb;
 	}
