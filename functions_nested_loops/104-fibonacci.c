@@ -25,7 +25,7 @@ int main(void)
 			n1 = n2;
 			n4 = t2;
 			n3 = n4;
-			printf("%lu%010lu", n1, n4);
+			printf("%lu%010lu", n2, n4);
 		}
 		else
 		{
