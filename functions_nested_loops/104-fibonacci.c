@@ -6,34 +6,32 @@
  */
 int main(void)
 {
-	int nb;
-	unsigned long int n1 = 0, n2 = 0, n3 = 1, n4 = 2;
-	unsigned long int t1, t2, t3;
-	unsigned long int number = 10000000000;
+	unsigned long int nb, n1, n2, b1, b2, c1, c2;
 
-	printf("%lu, %lu", n3, n4);
-	for (nb = 2; nb < 98; nb++)
+	n1 = 1;
+	n2 = 2;
+
+	printf("%lu", n1);
+
+	for (nb = 1; nb < 91; nb++)
 	{
-		printf(", ");
+		printf(", %lu", n2);
+		n2 = n2 + n1;
+		n1 = n2 - n1;
+	}
+	b1 = n1 / 1000000000;
+	b2 = n1 % 1000000000;
+	c1 = n2 / 1000000000;
+	c2 = n2 % 1000000000;
 
-		if (n3 + n4 > number || n1 > 0 || n2 > 0)
-		{
-			t1 = (n3 + n4) / number;
-			t2 = (n3 + n4) % number;
-			t3 = n1 + n2 + t1;
-			n2 = t3;
-			n1 = n2;
-			n4 = t2;
-			n3 = n4;
-			printf("%lu%010lu", n2, n4);
-		}
-		else
-		{
-			t2 = n3 + n4;
-			n4 = t2;
-			n3 = n4;
-			printf("%lu", n4);
-		}
+	for (nb = 92; nb < 99; ++nb)
+	{
+		printf(", %lu", c1 + (c2 / 1000000000));
+		printf("%lu", c2 % 1000000000);
+		c1 = c1 + b1;
+		b1 = c1 - b1;
+		c2 = c2 + b2;
+		b2 = c2 - b2;
 	}
 	printf("\n");
 	return (0);
