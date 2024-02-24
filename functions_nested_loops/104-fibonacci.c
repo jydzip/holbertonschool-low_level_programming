@@ -7,18 +7,33 @@
 int main(void)
 {
 	int nb;
-	int n1 = 1, n2 = 2;
+	unsigned long int n1 = 0, n2 = 0, n3 = 1, n4 = 2;
+	unsigned long int t1, t2, t3;
+	long int number = 10000000000;
 
-	printf("%d, %d", n1, n2);
-	for (nb = 3; nb <= 98; nb++)
+	printf("%lu, %lu", n3, n4);
+	for (nb = 2; nb < 98; nb++)
 	{
-		int total = n1 + n2;
-		
 		printf(", ");
-		printf("%d", total);
 
-		n1 = n2;
-		n2 = total;
+		if (n3 + n4 > number || n1 > 0 || n2 > 0)
+		{
+			t1 = (n3 + n4) / number;
+			t2 = (n3 + n4) % number;
+			t3 = n1 + n2 + t1;
+			n2 = t3;
+			n1 = n2;
+			n4 = t2;
+			n3 = n4;
+			printf("%lu%010lu", n1, n4);
+		}
+		else
+		{
+			t2 = n3 + n4;
+			n4 = t2;
+			n3 = n4;
+			printf("%lu", n4);
+		}
 	}
 	printf("\n");
 	return (0);
