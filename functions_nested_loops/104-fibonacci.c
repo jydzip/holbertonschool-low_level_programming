@@ -9,7 +9,7 @@ int main(void)
 	int nb;
 	unsigned long int n1 = 0, n2 = 0, n3 = 1, n4 = 2;
 	unsigned long int t1, t2, t3;
-	long int number = 10000000000;
+	unsigned long int number = 10000000000;
 
 	printf("%lu, %lu", n3, n4);
 	for (nb = 2; nb < 98; nb++)
