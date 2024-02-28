@@ -18,7 +18,7 @@ char *_strcpy(char *dest, char *src)
 		}
 		else
 		{
-			if (dest[i] == '\0')
+			if (dest[i] == '\0' && src[i] == '\0')
 			{
 				break;
 			}
