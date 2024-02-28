@@ -8,29 +8,26 @@
  */
 char *_strcpy(char *dest, char *src)
 {
-	int i;
-	int length = _strlen(src);
+	int i = 0;
 
-	for (i = 0; i < length; i++)
+	while (1)
 	{
-		dest[i] = src[i];
+		if (src[i] != '\0')
+		{
+			dest[i] = src[i];
+		}
+		else
+		{
+			if (dest[i] == '\0')
+			{
+				break;
+			}
+			else
+			{
+				dest[i] = '\0';
+			}
+		}
+		i++;
 	}
 	return (dest);
-}
-
-/**
- * _strlen - Return length of a string
- * @s: (int) text
- * Return: (int) length
- */
-int _strlen(char *s)
-{
-        int i;
-        int length = 0;
-
-        for (i = 0; s[i] != '\0'; i++)
-        {
-                length++;
-        }
-        return (length);
 }
