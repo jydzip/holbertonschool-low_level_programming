@@ -12,27 +12,13 @@ char *_strncpy(char *dest, char *src, int n)
 {
 	int i = 0;
 
-	while (i < n)
+	for (i = 0; i < n && src[i] != '\0'; i++)
 	{
 		dest[i] = src[i];
-		i++;
+	}
+	while (i < n)
+	{
+		dest[i++] = '\0';
 	}
 	return (dest);
-}
-
-/**
- * _strlen - Return length of a string
- * @s: (int) text
- * Return: (int) length
- */
-int _strlen(char *s)
-{
-	int i;
-	int length = 0;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		length++;
-	}
-	return (length);
 }
