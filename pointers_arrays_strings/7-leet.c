@@ -10,7 +10,7 @@
 char *leet(char *t)
 {
 	int i, ii, tmp, l1, l2, nb;
-	int size = _strlen(t);
+	int size = sizeof(*t) / sizeof(t[0]);
 	int spcs[][3] = {
 		{'a', 'A', '4'},
 		{'e', 'E', '3'},
@@ -38,21 +38,4 @@ char *leet(char *t)
 		t[i] = tmp;
 	}
 	return (t);
-}
-
-/**
- * _strlen - Return length of a string
- * @s: (int) text
- * Return: (int) length
- */
-int _strlen(char *s)
-{
-	int i;
-	int length = 0;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		length++;
-	}
-	return (length);
 }
