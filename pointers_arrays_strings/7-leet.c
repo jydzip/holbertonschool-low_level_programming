@@ -10,7 +10,6 @@
 char *leet(char *t)
 {
 	int i, ii, tmp, l1, l2, nb;
-	int size = sizeof(*t) / sizeof(t[0]);
 	int spcs[][3] = {
 		{'a', 'A', '4'},
 		{'e', 'E', '3'},
@@ -19,7 +18,7 @@ char *leet(char *t)
 		{'l', 'L', '1'}
 	};
 
-	for (i = 0; i < size; i++)
+	for (i = 0; t[i] != '\0'; i++)
 	{
 		tmp = t[i];
 
@@ -32,7 +31,6 @@ char *leet(char *t)
 			if (l1 == tmp || l2 == tmp)
 			{
 				tmp = nb;
-				break;
 			}
 		}
 		t[i] = tmp;
