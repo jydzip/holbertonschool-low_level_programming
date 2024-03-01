@@ -20,12 +20,19 @@ char *cap_string(char *t)
 
 		if (tmp >= 97 && tmp <= 122)
 		{
-			for (ii = 0; ii < 13; ii++)
+			if (i == 0)
 			{
-				if (spcs[ii] == last)
+				tmp -= 32;
+			}
+			else
+			{
+				for (ii = 0; ii < 13; ii++)
 				{
-					tmp -= 32;
-					break;
+					if (spcs[ii] == last)
+					{
+						tmp -= 32;
+						break;
+					}
 				}
 			}
 		}
