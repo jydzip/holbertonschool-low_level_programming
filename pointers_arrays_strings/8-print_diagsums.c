@@ -9,7 +9,7 @@
  * Return: void
  */
 void print_diagsums(int *a, int size)
-{	
+{
 	int i = 0;
 	int v1 = 0;
 	int v2 = 0;
