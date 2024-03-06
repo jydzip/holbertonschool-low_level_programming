@@ -10,13 +10,19 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int i = 0;
+	int i = 0, base;
 	int v1 = 0;
 	int v2 = 0;
 
+	if (size <= 0)
+	{
+		printf("\n");
+		return;
+	}
+
 	while (i < size)
 	{
-		int base = size * i;
+		base = size * i;
 
 		v1 += a[(base + i)];
 		v2 +=  a[(base + (size - 1) - i)];
