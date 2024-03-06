@@ -10,49 +10,25 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	char c1 = needle[0];
-	int needle_length = _strlen(needle);
-	int i, ii;
+	char *h, *n;
 
-	while (*haystack != '\0')
+	while (*haystack)
 	{
-		if (*haystack == c1)
+		h = haystack;
+		n = needle;
+
+		while (*n && *h == *n)
 		{
-			for (i = 0; i < needle_length; i++)
-			{
-				if (needle[i] != *haystack)
-				{
-					break;
-				}
-				if (i == needle_length - 1)
-				{
-					for (ii = 0; ii < i; ii++)
-					{
-						haystack--;
-					}
-					return (haystack);
-				}
-				haystack++;
-			}
+			h++;
+			n++;
 		}
+
+		if (*n == '\0')
+		{
+			return (haystack);
+		}
+
 		haystack++;
 	}
 	return (NULL);
-}
-
-/**
- * _strlen - Return length of a string
- * @s: (int) text
- * Return: (int) length
- */
-int _strlen(char *s)
-{
-	int i;
-	int length = 0;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		length++;
-	}
-	return (length);
 }
