@@ -98,6 +98,8 @@ int is_number(char *s)
 	{
 		if (s[i] == '-')
 			continue;
+		if (s[i] == '.')
+			break;
 		if (isdigit(s[i]) == 0)
 			return (0);
 	}
