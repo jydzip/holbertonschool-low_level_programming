@@ -23,6 +23,11 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	val = atoi(argv[1]);
+	if (val < 0 || argv[1][0] == '-')
+	{
+		printf("0\n");
+		return (0);
+	}
 	progression = val;
 	result = count_pieces(coins, val, &progression, &pieces);
 
@@ -91,6 +96,8 @@ int is_number(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
+		if (s[i] == '-')
+			continue;
 		if (isdigit(s[i]) == 0)
 			return (0);
 	}
