@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	val = atoi(argv[1]);
-	if (val < 0 || argv[1][0] == '-')
+	if (val < 0)
 	{
 		printf("0\n");
 		return (0);
@@ -45,11 +45,10 @@ int main(int argc, char *argv[])
  */
 int count_pieces(int coins[], int val, int *p, int *pieces)
 {
-	int i, coin, r;
+	int i, coin, r = 0;
 	int check;
-	(void)val;
 
-	if (p == 0)
+	if (*p == 0)
 	{
 		return (*pieces);
 	}
@@ -92,14 +91,15 @@ int count_pieces(int coins[], int val, int *p, int *pieces)
  */
 int is_number(char *s)
 {
-	int i;
+	int i = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	if (s[0] == '-')
 	{
-		if (s[i] == '-')
-			continue;
-		if (s[i] == '.')
-			return (0);
+		i = 1;
+	}
+
+	for (; s[i] != '\0'; i++)
+	{
 		if (isdigit(s[i]) == 0)
 			return (0);
 	}
