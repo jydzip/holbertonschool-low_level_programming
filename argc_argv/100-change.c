@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	int progression = 0;
 	int pieces = 0;
 
-	if (argc == 1 || is_number(argv[1]) == 0)
+	if (argc != 2 || is_number(argv[1]) == 0)
 	{
 		printf("Error\n");
 		return (1);
