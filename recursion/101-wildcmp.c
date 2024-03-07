@@ -1,11 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 
-int wildcmp(char *s1, char *s2);
-int __wildcmp(char *s1, char *s2, int size1, int size2, int *p1, int *p2);
-int __wildcmp_check_ast(char *s1, char *s2, int p2, int p1, int size1, int i);
-int __wildcmp_get_char_after_ast(char *s2, int p2, int size2);
-
 /**
  * wildcmp - Compare two strings
  * @s1: Text originale
@@ -16,93 +11,87 @@ int wildcmp(char *s1, char *s2)
 {
 	int size1 = _strlen_recursion(s1);
 	int size2 = _strlen_recursion(s2);
-	int p1 = 0;
-	int p2 = 0;
 
-	printf("- Size %d#%d\n", size1, size2);
+	/* printf("- Size %d#%d\n", size1, size2); */
 
-	return (__wildcmp(s1, s2, size1, size2, &p1, &p2));
+	return (__wildcmp(s1, s2, size1, size2, 0, 0));
 }
 
 /**
- * __is_palindrome - Recursion
- * @s: Text
- * @size: Size of text
- * @a: Index A
- * @b: Index B
+ * __wildcmp - Recursion
+ * @s1: Text 1
+ * @s2: Text 2 wildcard
+ * @size1: Size of @s1
+ * @size2: Size of @s2
+ * @p1: Index of @s1
+ * @p2: Index of @s2
  * Return: (int) result
  */
-int __wildcmp(char *s1, char *s2, int size1, int size2, int *p1, int *p2)
+int __wildcmp(char *s1, char *s2, int size1, int size2, int p1, int p2)
 {
-	int inc = 1;
-	int inc2 = 1;
-
-	printf("Check %d:%d %c#%c\n", *p1, *p2, s1[*p1], s2[*p2]);
-	if (*p1 == size1)
+	if (p1 == size1 && p2 == size2)
 	{
 		return (1);
 	}
-	else if (s2[*p2] == '*')
+	else if (p2 == size2)
 	{
-		int next_p2 = __wildcmp_get_char_after_ast(s2, *p2, size2);
+		return (0);
+	}
 
-		printf("NEW POS %d\n", next_p2);
-		if (s2[next_p2] == '\0')
+	/* printf("Check %d:%d %c#%c\n", p1, p2, s1[p1], s2[p2]); */
+
+	if (p1 == size1)
+	{
+		if (s2[p2] == '*')
 		{
-			return (1);
+			return (__wildcmp(s1, s2, size1, size2, p1, p2 + 1));
 		}
-		else {
-			inc = __wildcmp_check_ast(s1, s2, next_p2, *p1, size1, 1);
-
-			if (inc == 0)
-			{
-				return (0);
-			}
-
-			inc2 = next_p2 - *p2;
-		}
-	}
-	else if (s1[*p1] != s2[*p2])
-	{
 		return (0);
 	}
-
-	*p1 += inc;
-	*p2 += inc2;
-	return (__wildcmp(s1, s2, size1, size2, p1, p2));
+	else if (s2[p2] == '*')
+	{
+		return (__wildcmp_check_ast(s1, s2, size1, size2, p1, p2));
+	}
+	else if (s1[p1] == s2[p2])
+	{
+		return (__wildcmp(s1, s2, size1, size2, p1 + 1, p2 + 1));
+	}
+	return (0);
 }
 
-int __wildcmp_check_ast(char *s1, char *s2, int p2, int p1, int size1, int i)
+
+/**
+ * __wildcmp_check_ast - Recursion Asterisk
+ * @s1: Text 1
+ * @s2: Text 2 wildcard
+ * @size1: Size of @s1
+ * @size2: Size of @s2
+ * @p1: Index of @s1
+ * @p2: Index of @s2
+ * Return: (int) result
+ */
+int __wildcmp_check_ast(
+		char *s1, char *s2, int size1, int size2, int p1, int p2)
 {
-	int np = p1 + (i - 1);
-	char next = s2[p2];
+	int match_current, match_next;
 
-	printf("* Check %d -> %c\n", p1, next);
-	printf("** %c\n", s1[np]);
-	if (np == (size1 + 1))
-	{
-		return (0);
-	}
-	else if (s1[np] == next)
-	{
-		return (i);
+	/* printf("* Check %d:%d %c#%c\n", p1, p2, s1[p1], s2[p2]); */
 
+	if (p2 == size2 - 1)
+	{
+		return (1);
 	}
-	return __wildcmp_check_ast(s1, s2, p2, p1, size1, i + 1);
+
+	if (p1 < size1)
+	{
+		match_current = __wildcmp(s1, s2, size1, size2, p1, p2 + 1);
+		match_next = __wildcmp(s1, s2, size1, size2, p1 + 1, p2);
+
+		return (match_current || match_next);
+	}
+	return (0);
 }
 
-int __wildcmp_get_char_after_ast(char *s2, int p2, int size2)
-{
-	if (p2 == size2)
-	{
-		return size2;
-	}
-	else if (s2[p2] != '*')
-	{
-		return p2;
-	}
-	return __wildcmp_get_char_after_ast(s2, p2 + 1, size2);
-}
 
 /**
  * _strlen_recursion - Length of a string

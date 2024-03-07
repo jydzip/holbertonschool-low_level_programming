@@ -22,3 +22,7 @@ int __sqrt(int n, int i);
 
 int is_palindrome(char *s);
 int __is_palindrome(char *s, int size, int *a, int *b);
+
+int wildcmp(char *s1, char *s2);
+int __wildcmp(char *s1, char *s2, int size1, int size2, int p1, int p2);
+int __wildcmp_check_ast(char *s1, char *s2, int size1, int size2, int p1, int p2);
