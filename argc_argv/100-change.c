@@ -99,7 +99,7 @@ int is_number(char *s)
 		if (s[i] == '-')
 			continue;
 		if (s[i] == '.')
-			break;
+			return (0);
 		if (isdigit(s[i]) == 0)
 			return (0);
 	}
