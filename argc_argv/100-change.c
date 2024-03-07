@@ -43,10 +43,34 @@ int main(int argc, char *argv[])
  * @pieces: Progression pieces
  * Return: (int) Nb of pieces
  */
+/* Thanks internet */
 int count_pieces(int coins[], int val, int *p, int *pieces)
 {
+	int i, coin;
+
+	if (*p == 0)
+	{
+		return (*pieces);
+	}
+	for (i = 0; i < 5; i++)
+	{
+		coin = coins[i];
+		if (*p >= coin)
+		{
+			*pieces += (*p / coin);
+			*p = *p % coin;
+		}
+	}
+	return (count_pieces(coins, val, p, pieces));
+}
+
+/*
+ * OLD Function created, not adapted for large number
+ * 8/9 pts
+int count_pieces(int coins[], int val, int *p, long int *pieces)
+{
 	int i, coin, r = 0;
-	int check;
+	long int check;
 
 	if (*p == 0)
 	{
@@ -57,8 +81,8 @@ int count_pieces(int coins[], int val, int *p, int *pieces)
 	{
 		coin = coins[i];
 		check = *p - coin;
-		/* printf("- p: %d\n", *p); */
-		/* printf("Check %d:%d\n", coin, check); */
+		printf("- p: %d\n", *p);
+		printf("Check %d:%d\n", coin, check);
 		if (check == 0)
 		{
 			*pieces += 1;
@@ -83,6 +107,7 @@ int count_pieces(int coins[], int val, int *p, int *pieces)
 	*p = check;
 	return (count_pieces(coins, val, p, pieces));
 }
+*/
 
 /**
  * is_number - Check is a number valid
