@@ -20,10 +20,11 @@ char *_strdup(char *str)
 	if (ptr == NULL)
 		return (NULL);
 
-	for (i = 0; i < sp; i++)
+	for (i = 0; i < size; i++)
 	{
 		ptr[i] = str[i];
 	}
+	ptr[size] = '\0';
 	return (ptr);
 }
 
