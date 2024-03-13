@@ -16,14 +16,22 @@ int _strlen(char *s);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *ndog = malloc(sizeof(dog_t));
-	char *new_name = malloc(_strlen(name) + 1);
-	char *new_owner = malloc(_strlen(owner) + 1);
-
-	_strcpy(new_name, name);
-	_strcpy(new_owner, owner);
+	char *new_name;
+	char *new_owner;
 
 	if (ndog == NULL)
 		return (NULL);
+	if (name == NULL || owner == NULL)
+		return (NULL);
+
+	new_name = malloc(_strlen(name) + 1);
+	new_owner = malloc(_strlen(owner) + 1);
+
+	if (new_name == NULL || new_owner == NULL)
+		return (NULL);
+
+	_strcpy(new_name, name);
+	_strcpy(new_owner, owner);
 
 	new_name = ndog->name = new_name;
 	ndog->age = age;
