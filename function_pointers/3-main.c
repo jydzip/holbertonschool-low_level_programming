@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
 	if (*symb == '/' || *symb == '%')
 	{
-		if (a <= 0 || b <= 0)
+		if (b == 0)
 		{
 			printf("Error\n");
 			return (100);
