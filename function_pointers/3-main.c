@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	b = atoi(argv[3]);
 	symb = argv[2];
 
-	if ((*symb == '/' || *symb == '%') && b <= 0)
+	if ((*symb == '/' || *symb == '%') && a <= 0 && b <= 0)
 	{
 		printf("Error\n");
 		return (100);
