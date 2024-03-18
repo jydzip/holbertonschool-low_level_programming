@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	int (*f)(int a, int b);
 	int result = 0;
 
-	if (argc != 4)
+	if (argc < 4)
 	{
 		printf("Error\n");
 		return (98);
