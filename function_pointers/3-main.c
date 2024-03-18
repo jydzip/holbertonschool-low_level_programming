@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	if (argc != 4)
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 
 	a = atoi(argv[1]);
@@ -28,13 +28,13 @@ int main(int argc, char *argv[])
 	if ((*symb == '/' || *symb == '%') && b == 0)
 	{
 		printf("Error\n");
-		return (100);
+		exit(100);
 	}
 	f = get_op_func(symb);
 	if (f == NULL)
 	{
 		printf("Error\n");
-		return (99);
+		exit(99);
 	}
 	result = (*f)(a, b);
 
