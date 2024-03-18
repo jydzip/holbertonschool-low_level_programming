@@ -10,18 +10,34 @@
  */
 int main(int argc, char *argv[])
 {
-	int a = atoi(argv[1]);
-	int b = atoi(argv[3]);
-	char *symb = argv[2];
-	int (*f)(int a, int b) = get_op_func(symb);
+	int a, b;
+	char *symb;
+	int (*f)(int a, int b);
 	int result = 0;
 
-	(void)argc;
+	if (argc != 4)
+	{
+		printf("Error\n");
+		return (98);
+	}
 
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+	symb = argv[2];
+
+	if (*symb == '/' || *symb == '%')
+	{
+		if (a <= 0 || b <= 0)
+		{
+			printf("Error\n");
+			return (100);
+		}
+	}
+	f = get_op_func(symb);
 	if (f == NULL)
 	{
 		printf("Error\n");
-		return (1);
+		return (99);
 	}
 	result = (*f)(a, b);
 
