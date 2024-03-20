@@ -15,7 +15,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	if (n == 0)
 		return;
-	if (!separator || *separator == 0)
+	if (!separator)
 		sep = "";
 	else
 		sep = (char *) separator;
@@ -27,6 +27,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		if (i != (n - 1))
 			printf("%s", sep);
 	}
-	va_end(args);
 	printf("\n");
+	va_end(args);
 }
