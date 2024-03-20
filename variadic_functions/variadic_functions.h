@@ -1,5 +1,7 @@
 #ifndef FUNC_VARIADIC
 #define FUNC_VARIADIC
+#include <stdarg.h>
+
 /**
  * struct print_type - Structure of type to print
  *
