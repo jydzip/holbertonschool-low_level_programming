@@ -37,13 +37,12 @@ int main(int argc, char *argv[])
  */
 void _create_file(char *filename, char *text_content)
 {
-	int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	int fd_value;
+	int fd, fd_value;
 	ssize_t bytes_w;
 
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd == -1)
 	{
-		free(text_content);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
@@ -54,7 +53,6 @@ void _create_file(char *filename, char *text_content)
 		if (bytes_w == -1)
 		{
 			close(fd);
-			free(text_content);
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 			exit(99);
 		}
@@ -63,7 +61,6 @@ void _create_file(char *filename, char *text_content)
 	fd_value = close(fd);
 	if (fd_value < 0)
 	{
-		free(text_content);
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_value);
 		exit(100);
 	}
@@ -95,6 +92,7 @@ char *_read_file(char *filename)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
+	close(fd);
 	return (buffer);
 }
 
