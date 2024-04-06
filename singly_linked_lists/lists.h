@@ -4,8 +4,8 @@
 
 /**
  * struct list_type - Struct for List Linked
- * @str - String
- * @len - Len of string
+ * @str: String
+ * @len: Len of string
  * @next: Next linked
  */
 typedef struct list_type
